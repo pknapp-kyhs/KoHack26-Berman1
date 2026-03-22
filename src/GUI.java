@@ -9,6 +9,7 @@ public class GUI {
     private static JLabel label;
     private static JFrame frame;
     private static JPanel panel;
+    private static JTextArea textArea;
     static void createWindow(String windowTitle){
         frame = new JFrame(windowTitle);
         panel = new JPanel();
@@ -26,5 +27,12 @@ public class GUI {
         // Set the new font to the component
         label.setFont(newFont);
         panel.add(label);
+    }
+    static void addTextArea(String text, int size){
+        textArea = new JTextArea();
+        Font newFont = new Font("Serif", Font.BOLD, size);
+        textArea.setFont(newFont);
+        textArea.setText(text);
+        panel.add(textArea);
     }
 }
