@@ -12,7 +12,7 @@ public class Question {
     }
     public void askQuestion(){
         GUI.createWindow(String.valueOf(indexOfQuestion));
-        GUI.addTextArea(textOfQuestion, 100);
+        GUI.addTextArea(textOfQuestion, 50);
         if(useTTS){
             TextToSpeech.speak(textOfQuestion);
         }

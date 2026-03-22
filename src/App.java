@@ -15,7 +15,9 @@ public class App {
         Perek esther = Parser.parse(sefaria,Perek.class);
         System.out.println(esther);
         String passukOne = esther.versions[0].text[0][0];
-        question = new Question(passukOne, passukOne, 0);
-        question.askQuestion();
+        question = new Question(passukOne + "\nTranslate to English", passukOne, 0);
+        //question.askQuestion();
+
+        HomePage.activate();
     }
 }

@@ -6,10 +6,10 @@ import java.awt.BorderLayout;
 import java.awt.Font;
 
 public class GUI {
-    private static JLabel label;
-    private static JFrame frame;
-    private static JPanel panel;
-    private static JTextArea textArea;
+    //private static JLabel label;
+    public static JFrame frame;
+    public static JPanel panel;
+    //private static JTextArea textArea;
     static void createWindow(String windowTitle){
         frame = new JFrame(windowTitle);
         panel = new JPanel();
@@ -20,7 +20,7 @@ public class GUI {
         frame.setVisible(true);
     }
     static void addLabel(String text, int size){
-        label = new JLabel(text);
+        JLabel label = new JLabel(text);
         // Create a new Font with a specific name, style, and size (e.g., 20)
         Font newFont = new Font("Serif", Font.BOLD, size);
 
@@ -29,10 +29,28 @@ public class GUI {
         panel.add(label);
     }
     static void addTextArea(String text, int size){
-        textArea = new JTextArea();
-        Font newFont = new Font("Serif", Font.BOLD, size);
-        textArea.setFont(newFont);
+        JTextArea textArea = new JTextArea(10, 30);
         textArea.setText(text);
-        panel.add(textArea);
+        textArea.setLineWrap(true); // Enable line wrapping
+        textArea.setWrapStyleWord(true); // Wrap at word boundaries
+
+        Font newFont = new Font("Serif", Font.BOLD, size);
+
+        // Set the new font to the component
+        textArea.setFont(newFont);
+        textArea.setEditable(false);
+        // Put the JTextArea inside a JScrollPane for scrolling functionality
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        // Set scrollbar policies
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+
+
+        // Add the JScrollPane to the center of the frame
+        frame.add(scrollPane, BorderLayout.CENTER);
+
+        frame.setVisible(true);
+        
     }
+    
 }
