@@ -8,7 +8,8 @@ import javax.swing.*;
 import javax.swing.text.NumberFormatter;
 
 
-public class PassukSelector extends JPanel {
+public class PassukSelector extends JFrame {
+    JPanel full;
     JComboBox<String> sefer;
     JFormattedTextField perek;
     JFormattedTextField passuk;
@@ -18,7 +19,7 @@ public class PassukSelector extends JPanel {
     static NumberFormatter formatter;
     static {
         NumberFormat format = NumberFormat.getIntegerInstance();
-        format.setGroupingUsed(false); //
+        format.setGroupingUsed(false);
         formatter = new NumberFormatter(format);
         formatter.setValueClass(Integer.class);
         formatter.setAllowsInvalid(false);
@@ -26,13 +27,13 @@ public class PassukSelector extends JPanel {
     }
     
     public PassukSelector() {
-        super(new GridLayout(2, 1));
+        full = new JPanel(new GridLayout(3, 1));
         labels = new JPanel(new GridLayout(1,3));
         labels.add(new JLabel("Sefer"));
         labels.add(new JLabel("Perek"));
         labels.add(new JLabel("Passuk"));
 
-        sefer = new JComboBox<>(Chumash.books);
+        sefer = new JComboBox<String>(Chumash.books);
         perek = new JFormattedTextField(formatter);
         passuk = new JFormattedTextField(passuk);
 
@@ -41,16 +42,16 @@ public class PassukSelector extends JPanel {
         inputs.add(sefer);
         inputs.add(perek);
         inputs.add(passuk);
-        add(labels);
-        add(inputs);
+        full.add(labels);
+        full.add(inputs);
 
         submit = new JButton("submit");
         submit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    Chumash.getPassuk(0, 1, 50);
-                    removeAll();
+                    Chumash.getPassuk(sefer.getSelectedIndex(), Integer.parseInt(perek.getText()), Integer.parseInt(passuk.getText()));
+                    full.removeAll();
                 } catch (NullPointerException a) {
                     JOptionPane.showMessageDialog(null, "We couldnt find that passuk\nPlease search again");
                 } catch (IOException a) {
@@ -58,6 +59,10 @@ public class PassukSelector extends JPanel {
                 }
             }
         });
-        add(submit);
+        full.add(submit);
+        add(full);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setVisible(true);
     }
 }

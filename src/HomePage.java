@@ -15,5 +15,7 @@ public class HomePage {
         TextToSpeech.speak("Option 1: Chumash. Option 2: Quiz.");
     }
     public static void replace() {
+        GUI.frame.dispose();
+        PassukSelector select = new PassukSelector();
     }
 }
