@@ -18,6 +18,6 @@ public class App {
         String passukOne = esther.versions[0].text[0][0];
         System.out.println(passukOne);
         //QuizMaker.makeQuiz("resources/quiz.json").run();
-        System.out.println(Chumash.getPassuk(0, 1, 50));
+        LoginPage.activate();
     }
 }
