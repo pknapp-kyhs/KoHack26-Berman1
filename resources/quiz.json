@@ -1,0 +1,38 @@
+{
+    "questions" : [
+        {
+            "question" : "q1",
+            "answers" : [
+                {
+                    "text" : "t",
+                    "answer" : true
+                },
+                {
+                    "text" : "t2",
+                    "answer" : false
+                },
+                {
+                    "text" : "t3",
+                    "answer" : false
+                }
+            ]
+        },
+        {
+            "question" : "q2",
+            "answers" : [
+                {
+                    "text" : "t",
+                    "answer" : false
+                },
+                {
+                    "text" : "t2",
+                    "answer" : false
+                },
+                {
+                    "text" : "t3",
+                    "answer" : true
+                }
+            ]
+        }
+    ]
+}
