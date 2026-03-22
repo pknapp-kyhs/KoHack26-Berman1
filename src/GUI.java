@@ -18,6 +18,7 @@ public class GUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(panel, BorderLayout.NORTH); 
         frame.setVisible(true);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     static JLabel addLabel(String text, int size){
         JLabel label = new JLabel(text);

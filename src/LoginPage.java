@@ -6,12 +6,12 @@ import java.awt.BorderLayout;
 import java.awt.Font;
 
 public class LoginPage {
-    
+    static JTextField textField;
     static public void activate(){
         
         GUI.createWindow("Home Page");
         
-        JTextField textField = new JTextField(20);
+        textField = new JTextField(20);
 
         //JButton button = new JButton("submit");
         JLabel label = GUI.addLabel("Enter email address", 20);
@@ -25,9 +25,10 @@ public class LoginPage {
         if(email.indexOf("@") != -1)
         {
             if(email.substring(email.indexOf("@")).indexOf(".") != -1){
-                //email worked
+                HomePage.activate();
             }
         }
-        //email did not work
+        textField.setText("Type in a valid email address");
+        
     }
 }
