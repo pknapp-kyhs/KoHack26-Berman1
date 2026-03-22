@@ -19,7 +19,7 @@ public class GUI {
         frame.add(panel, BorderLayout.NORTH); 
         frame.setVisible(true);
     }
-    static void addLabel(String text, int size){
+    static JLabel addLabel(String text, int size){
         JLabel label = new JLabel(text);
         // Create a new Font with a specific name, style, and size (e.g., 20)
         Font newFont = new Font("Serif", Font.BOLD, size);
@@ -27,6 +27,7 @@ public class GUI {
         // Set the new font to the component
         label.setFont(newFont);
         panel.add(label);
+        return label;
     }
     static void addTextArea(String text, int size){
         JTextArea textArea = new JTextArea(10, 30);
@@ -52,5 +53,15 @@ public class GUI {
         frame.setVisible(true);
         
     }
+    public void addButton(String text, Runnable action) {
+        JButton button = new JButton(text);
+        panel.add(button);
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                action.run();
+            }
+        });
+    }
     
 }
+
