@@ -1,5 +1,7 @@
+import java.lang.classfile.constantpool.Utf8Entry;
 import java.net.URI;
 import java.net.http.*;
+import java.nio.charset.StandardCharsets;
 public class API {
     public static String requestBody(String URL, String spot, String[][] params) {
         try {
@@ -17,9 +19,8 @@ public class API {
         }
         HttpRequest.Builder builder = HttpRequest.newBuilder().uri(URI.create(URLString));
         HttpRequest request = builder.GET().build();
-        System.out.println(request.toString());
         HttpResponse<String> response;
-        response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        response = client.send(request, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
         return response;
     }
 }

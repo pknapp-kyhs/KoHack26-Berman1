@@ -12,7 +12,12 @@ public class PerekAdapter implements JsonDeserializer<String[][]> {
         } else if (element.isJsonArray()) {
             JsonArray jsonArray = element.getAsJsonArray();
             if (jsonArray.size() > 0 && jsonArray.get(0).isJsonArray()) {
-                return context.deserialize(jsonArray, new String[0][0].getClass());
+                int i = jsonArray.size();
+                String[][] out = new String[i][];
+                for (int a = 0; a < i; a++) {
+                    out[a] = context.deserialize(jsonArray.get(a), new String[0].getClass());
+                }
+                return out;
             } else {
                 String[][] out = {context.deserialize(jsonArray, new String[0].getClass())};
                 return out;
