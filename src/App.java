@@ -1,6 +1,8 @@
 import com.sun.speech.freetts.Voice;
 import com.sun.speech.freetts.VoiceManager;
 
+import Perek.Perek;
+
 
 public class App {
     private static Voice[] voices;

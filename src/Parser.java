@@ -5,7 +5,8 @@ public class Parser {
     static Gson thing;
     public Parser() {}
     static {
-        thing = new Gson();
+        GsonBuilder builder = new GsonBuilder().registerTypeAdapter(String[][].class, new PerekAdapter());
+        thing = builder.create();
     }
 
     public static <type> type parsePath(String path, Class<type> type) {
