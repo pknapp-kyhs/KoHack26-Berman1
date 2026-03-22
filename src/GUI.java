@@ -14,7 +14,7 @@ public class GUI {
         frame = new JFrame(windowTitle);
         panel = new JPanel();
         panel.setLayout(new GridLayout(0, 1)); 
-        frame.setSize(1920, 1080);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(panel, BorderLayout.NORTH); 
         frame.setVisible(true);
