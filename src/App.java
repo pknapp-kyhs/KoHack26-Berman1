@@ -6,6 +6,7 @@ public class App {
     private static Voice[] voices;
 
     public static void main(String[] args) throws Exception {
-        TextToSpeech.speak("Hello World");
+        Question question = new Question("What color is the sky?", "blue", 5);
+        question.askQuestion();
     }
 }
