@@ -19,7 +19,7 @@ public class PassukSelector extends JFrame {
     static NumberFormatter formatter;
     static {
         NumberFormat format = NumberFormat.getIntegerInstance();
-        format.setGroupingUsed(false); //
+        format.setGroupingUsed(false);
         formatter = new NumberFormatter(format);
         formatter.setValueClass(Integer.class);
         formatter.setAllowsInvalid(false);
@@ -33,7 +33,7 @@ public class PassukSelector extends JFrame {
         labels.add(new JLabel("Perek"));
         labels.add(new JLabel("Passuk"));
 
-        sefer = new JComboBox<>(Chumash.books);
+        sefer = new JComboBox<String>(Chumash.books);
         perek = new JFormattedTextField(formatter);
         passuk = new JFormattedTextField(passuk);
 
@@ -50,7 +50,7 @@ public class PassukSelector extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    Chumash.getPassuk(0, 1, 50);
+                    Chumash.getPassuk(sefer.getSelectedIndex(), Integer.parseInt(perek.getText()), Integer.parseInt(passuk.getText()));
                     full.removeAll();
                 } catch (NullPointerException a) {
                     JOptionPane.showMessageDialog(null, "We couldnt find that passuk\nPlease search again");
@@ -61,6 +61,8 @@ public class PassukSelector extends JFrame {
         });
         full.add(submit);
         add(full);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
         setVisible(true);
     }
 }
