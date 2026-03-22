@@ -13,33 +13,21 @@ public class LoginPage {
         
         JTextField textField = new JTextField(20);
 
-        JButton button = new JButton("submit");
+        //JButton button = new JButton("submit");
         JLabel label = GUI.addLabel("Enter email address", 20);
         GUI.panel.add(textField);
-        GUI.panel.add(button);
+        
+        GUI.addButton("Submit", () -> checkEmailInput(textField.getText()));
         GUI.frame.getContentPane().add(GUI.panel);
-        button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-            String inputText = textField.getText();
-            if(checkEmailInput(inputText)){
-                //proceed
-            }
-            else{
-                label.setText("enter a valid email");
-                
-            }
-            System.out.println("Button was clicked!");
-            }
-        });
     }
 
-    static Boolean checkEmailInput(String email){
+    static void checkEmailInput(String email){
         if(email.indexOf("@") != -1)
         {
             if(email.substring(email.indexOf("@")).indexOf(".") != -1){
-                return true;
+                //email worked
             }
         }
-        return false;
+        //email did not work
     }
 }

@@ -53,7 +53,7 @@ public class GUI {
         frame.setVisible(true);
         
     }
-    public void addButton(String text, Runnable action) {
+    public static void addButton(String text, Runnable action) {
         JButton button = new JButton(text);
         panel.add(button);
         button.addActionListener(new ActionListener() {
