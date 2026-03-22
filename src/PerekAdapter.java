@@ -18,7 +18,7 @@ public class PerekAdapter implements JsonDeserializer<String[][]> {
                 return out;
             }
         } else {
-            throw new JsonParseException("errorrrrrr");
+            throw new JsonParseException("the json didnt work");
         }
     }
 }
