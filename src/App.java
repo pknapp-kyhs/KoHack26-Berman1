@@ -15,5 +15,6 @@ public class App {
         System.out.println(esther);
         String passukOne = esther.versions[0].text[0][0];
         QuizMaker.makeQuiz("resources/quiz.json").run();
+        System.out.println(Chumash.getPassuk(0, 0, 0));
     }
 }
