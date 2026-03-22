@@ -8,7 +8,8 @@ import javax.swing.*;
 import javax.swing.text.NumberFormatter;
 
 
-public class PassukSelector extends JPanel {
+public class PassukSelector extends JFrame {
+    JPanel full;
     JComboBox<String> sefer;
     JFormattedTextField perek;
     JFormattedTextField passuk;
@@ -26,7 +27,7 @@ public class PassukSelector extends JPanel {
     }
     
     public PassukSelector() {
-        super(new GridLayout(2, 1));
+        full = new JPanel(new GridLayout(3, 1));
         labels = new JPanel(new GridLayout(1,3));
         labels.add(new JLabel("Sefer"));
         labels.add(new JLabel("Perek"));
@@ -41,8 +42,8 @@ public class PassukSelector extends JPanel {
         inputs.add(sefer);
         inputs.add(perek);
         inputs.add(passuk);
-        add(labels);
-        add(inputs);
+        full.add(labels);
+        full.add(inputs);
 
         submit = new JButton("submit");
         submit.addActionListener(new ActionListener() {
@@ -50,7 +51,7 @@ public class PassukSelector extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 try {
                     Chumash.getPassuk(0, 1, 50);
-                    removeAll();
+                    full.removeAll();
                 } catch (NullPointerException a) {
                     JOptionPane.showMessageDialog(null, "We couldnt find that passuk\nPlease search again");
                 } catch (IOException a) {
@@ -58,6 +59,8 @@ public class PassukSelector extends JPanel {
                 }
             }
         });
-        add(submit);
+        full.add(submit);
+        add(full);
+        setVisible(true);
     }
 }
