@@ -1,4 +1,7 @@
 import javax.swing.*;
+
+import org.w3c.dom.Text;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.GridLayout;
@@ -10,7 +13,6 @@ public class LoginPage {
     static public void activate(){
         
         GUI.createWindow("Home Page");
-        
         textField = new JTextField(20);
 
         //JButton button = new JButton("submit");
@@ -19,6 +21,8 @@ public class LoginPage {
         
         GUI.addButton("Submit", () -> checkEmailInput(textField.getText()));
         GUI.frame.getContentPane().add(GUI.panel);
+        
+        TextToSpeech.speak("Welcome to the login page. Please enter your email address to continue.");
     }
 
     static void checkEmailInput(String email){
@@ -26,9 +30,11 @@ public class LoginPage {
         {
             if(email.substring(email.indexOf("@")).indexOf(".") != -1){
                 HomePage.activate();
+                return;
             }
         }
         textField.setText("Type in a valid email address");
+        TextToSpeech.speak("Please enter a valid email address");
         
     }
 }
