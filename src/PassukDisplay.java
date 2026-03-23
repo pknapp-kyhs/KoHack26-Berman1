@@ -60,12 +60,14 @@ public class PassukDisplay extends JFrame {
         //add the bottom layer (the navigation control)
         JPanel control = new JPanel(new GridLayout(1,3));
         back = makeButton("Previous", ()->goBack());
-        //set up the position control
-        JPanel position = new JPanel(new GridLayout(1, 2));
+        //set up the position control (2 comboboxes, and displays to show what they are)
+        JPanel position = new JPanel(new GridLayout(2, 2));
         perekBox = makeComboBox(sefer.length, ()->perekCallback());
         perekBox.setSelectedItem(Integer.valueOf(perek));
         passukBox = makeComboBox(sefer[perek].length, ()->passukCallback());
         passukBox.setSelectedItem(Integer.valueOf(passuk));
+        position.add(new JLabel("Perek"));
+        position.add(new JLabel("Passuk"));
         position.add(perekBox);
         position.add(passukBox);
         //bakc to buttons

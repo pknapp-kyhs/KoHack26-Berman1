@@ -19,7 +19,6 @@ public class Question {
     }
 
     public Question(String question, Answer[] answers) {
-        super();
         if (question == null || answers == null || answers.length <= 0) {
             //debugging and error handling
             throw new IllegalArgumentException("Invalid Constructor inputs");
@@ -30,7 +29,7 @@ public class Question {
     
     //asks the question
     public boolean ask() {
-        //returns the array of ints from the chosen answer
+        //returns whether the chosen answer was correct
         return answers[JOptionPane.showOptionDialog(null,question,"Question",JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE,icon,answers,0)].getResult();
     }
 }
