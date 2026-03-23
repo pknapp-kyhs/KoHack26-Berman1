@@ -18,6 +18,10 @@ public class PasukSelectorTwo {
         GUI.addLabel("Perek", 20);
         GUI.addLabel("Passuk", 20);
         GUI.addPanel(1, 3, "South");
+        GUI.addButton("Back to Home Page", () -> {
+            GUI.frame.dispose();
+            HomePage.activate();
+        });
         GUI.addButton("Submit", () -> {
             try {
                 int seferNum = sefer.getSelectedIndex();

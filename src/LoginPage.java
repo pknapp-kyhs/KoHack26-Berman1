@@ -29,6 +29,8 @@ public class LoginPage {
         if(email.indexOf("@") != -1)
         {
             if(email.substring(email.indexOf("@")).indexOf(".") != -1){
+                TextToSpeech.stopAudio();
+                TextToSpeech.speak("Login successful.");
                 HomePage.activate();
                 return;
             }
