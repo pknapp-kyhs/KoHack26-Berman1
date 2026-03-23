@@ -3,12 +3,12 @@ import java.io.IOException;
 import javax.swing.*;
 import java.awt.event.*;
 import java.util.stream.IntStream;
+//a specific class to display a full sefer for sefaria and allow you to move through it
 public class PassukDisplay extends JFrame {
-
     String book;
     int perek;
     int passuk;
-    
+
     String[][][] sefer;
 
     JLabel title;
