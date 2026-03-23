@@ -42,14 +42,10 @@ public class PassukDisplay extends JFrame {
 
         //set up the gui
         JPanel main = new JPanel(new GridLayout(3, 1));
-        //add the top layer (title)
+        //add the top layer (title and home button)
         JPanel top = new JPanel(new GridLayout(1,2));
         title = new JLabel(book);
-        JButton homeButton = new JButton("Home Page");
-        homeButton.addActionListener(e -> {
-            dispose();
-            HomePage.activate();
-        });
+        JButton homeButton = makeButton("Home Page",()->{dispose(); HomePage.activate();});
         top.add(title);
         top.add(homeButton);
         main.add(top);
