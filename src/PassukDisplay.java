@@ -36,9 +36,17 @@ public class PassukDisplay extends JFrame {
         } catch (IOException e) {
             System.out.println("you shouldnt be able to reach this");
         }
-        main = new JPanel(new GridLayout(3, 1));
+        main = new JPanel(new GridLayout(3, 2));
+        JPanel top = new JPanel(new GridLayout(1,2));
         title = new JLabel(book);
-        main.add(title);
+        top.add(title);
+        JButton homeButton = new JButton("Home Page");
+        homeButton.addActionListener(e -> {
+            dispose();
+            HomePage.activate();
+        });
+        top.add(homeButton);
+        main.add(top);
         JPanel textDisplay = new JPanel(new GridLayout(1,2));
         hebrew = new JTextArea();
         hebrew.setEditable(false);
