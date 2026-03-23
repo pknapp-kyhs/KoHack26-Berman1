@@ -23,6 +23,7 @@ public class PasukSelectorTwo {
                 int seferNum = sefer.getSelectedIndex();
                 int perekNum = Integer.parseInt(perek.getText());
                 int passukNum = Integer.parseInt(pasuk.getText());
+                Chumash.getPassuk(seferNum, perekNum, passukNum);
                 PassukDisplay reader = new PassukDisplay(seferNum,perekNum,passukNum);
                 GUI.frame.dispose();
                 reader.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -30,6 +31,8 @@ public class PasukSelectorTwo {
                 reader.setVisible(true);
             } catch (NullPointerException a) {
                 JOptionPane.showMessageDialog(null, "We couldnt find that passuk\nPlease search again");
+            } catch (IOException e) {
+                System.out.println("at this point i forget what this does.");
             }
         });
         GUI.addPanel(1,3, "Center");
