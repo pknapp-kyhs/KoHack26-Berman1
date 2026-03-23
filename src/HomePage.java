@@ -1,11 +1,12 @@
 public class HomePage {
+    public static String email = "";
     static void activate(){
         TextToSpeech.stopAudio();
         //Create a new quiz and run it
         Quiz quiz = Quiz.makeQuiz("resources/quiz.json");
         //dispose the previous page
         GUI.frame.dispose();
-        //Create a new page and add labeld and buttons
+        //Create a new page and add labels and buttons
         GUI.createWindow("Home Page");
         GUI.addLabel("Welcome to the Home Page!", 20);
         GUI.addButton("Chumash", () -> replace());

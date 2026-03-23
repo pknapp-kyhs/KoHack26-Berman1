@@ -31,6 +31,8 @@ public class PasukSelector {
                 JOptionPane.showMessageDialog(null, "We couldnt find that passuk\nPlease search again");
             } catch (IOException e) {
                 System.out.println("at this point i forget what this does.");
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "We couldnt find that passuk\nPlease use only numbers");
             }
         });
         GUI.addPanel(1,3, "Center");

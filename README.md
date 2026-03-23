@@ -20,4 +20,9 @@ PassukDisplay.java: A class to allow any sefer of tanach or other sefaria source
 PassukSelector.java: A class allowing users to select any passuk in chumash to open to in a PassukDisplay. uses GUI.java
 PerekAdapter.java: A custom Json Deserializer allowing a string, array of string, or 2d array of strings, to be parsed to a 2d string array in java.
 SortElement.java: an element used to jointly sort names and numbers in the merge sort in Leaderboard.java
-TextToSpeech.java: a class implementing TTS libraries to be easily callable throughout the program.
+TextToSpeech.java: a class implementing TTS libraries to be easily callable throughout the program. Also uses GUI.java to make voice settings available to the user.
+
+Three features:
+1. Our text reader. Includes Various GUI methods, pulls texts from the sefaria API, and allows the user to both select and navigate through a sefer of chumash.
+2. Our quiz platform. Opens a quiz from where it is stored as a JSON, allows the user to answer questions, scores the quiz, and ranks the user in a leaderboard (using a merge sort).
+3. Screen reader. Maybe areas of the app have been made accessible with a TTS system, which is spread across the app and also configurable by the user.

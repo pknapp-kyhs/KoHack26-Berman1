@@ -19,7 +19,7 @@ public class Quiz {
         }
 
         //set up the leaderboard after the player finishes
-        SortElement playerScore = new SortElement("Player", result);
+        SortElement playerScore = new SortElement(HomePage.email, result);
         GUI.frame.dispose();
         Leaderboard.activate(playerScore);
     }
