@@ -1,3 +1,16 @@
 {
-    "terminal.integrated.fontFamily": "consolas"
+    "terminal.integrated.fontFamily": "consolas",
+    "java.project.sourcePaths": [
+        "src",
+        "src\\Quiz"
+    ],
+    "java.project.referencedLibraries": [
+        "c:\\Users\\Minio\\Desktop\\KoHack26-Berman1\\lib\\cmulex.jar",
+        "c:\\Users\\Minio\\Desktop\\KoHack26-Berman1\\lib\\gson-2.13.2.jar",
+        "c:\\Users\\Minio\\Desktop\\KoHack26-Berman1\\lib\\cmu_time_awb.jar",
+        "c:\\Users\\Minio\\Desktop\\KoHack26-Berman1\\lib\\en_us.jar",
+        "c:\\Users\\Minio\\Desktop\\KoHack26-Berman1\\lib\\cmu_us_kal.jar",
+        "c:\\Users\\Minio\\Desktop\\KoHack26-Berman1\\lib\\freetts.jar",
+        "c:\\Users\\Minio\\Desktop\\KoHack26-Berman1\\lib\\freetts-jsapi10.jar"
+    ]
 }
