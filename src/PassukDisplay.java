@@ -1,12 +1,8 @@
 import java.awt.GridLayout;
-import java.awt.event.ActionListener;
 import java.io.IOException;
-
 import javax.swing.*;
-
-import org.w3c.dom.Text;
-
 import java.awt.event.*;
+import java.util.stream.IntStream;
 public class PassukDisplay extends JFrame {
 
     String book;
@@ -18,9 +14,12 @@ public class PassukDisplay extends JFrame {
     JLabel title;
     JTextArea hebrew;
     JTextArea english;
-    JTextField position;
+    JComboBox<Integer> perekBox;
+    JComboBox<Integer> passukBox;
     JButton back;
     JButton forward;
+
+    boolean watch = false;
 
     //a specific constructor for sefarim in chumash that allows a number to be used instead of name of sefer
     public PassukDisplay(int chumashBook, int perek, int passuk) {
@@ -61,8 +60,15 @@ public class PassukDisplay extends JFrame {
         //add the bottom layer (the navigation control)
         JPanel control = new JPanel(new GridLayout(1,3));
         back = makeButton("Previous", ()->goBack());
-        position = new JTextField();
-        position.setEditable(false);
+        //set up the position control
+        JPanel position = new JPanel(new GridLayout(1, 2));
+        perekBox = makeComboBox(sefer.length, ()->perekCallback());
+        perekBox.setSelectedItem(Integer.valueOf(perek));
+        passukBox = makeComboBox(sefer[perek].length, ()->passukCallback());
+        passukBox.setSelectedItem(Integer.valueOf(passuk));
+        position.add(perekBox);
+        position.add(passukBox);
+        //bakc to buttons
         forward = makeButton("Next", ()->goForward());
         control.add(back);
         control.add(position);
@@ -72,6 +78,7 @@ public class PassukDisplay extends JFrame {
         //start up by opening to the selecting passuk
         goToPassuk(perek, passuk);
         add(main);
+        watch = true;
     }
 
     //general function to make a text area that wraps correctly and cannot be edited by the user in one line
@@ -90,6 +97,13 @@ public class PassukDisplay extends JFrame {
                 callback.run();
             }
         });
+        return out;
+    }
+    //make a combo box to select passuk or perek number up to the max in a single line
+    public JComboBox<Integer> makeComboBox(int max, Runnable callback) {
+        Integer[] nums = IntStream.rangeClosed(1, max).boxed().toArray(Integer[]::new);
+        JComboBox<Integer> out = new JComboBox<Integer>(nums);
+        out.addActionListener(e -> {if (watch) {callback.run();}});
         return out;
     }
 
@@ -119,17 +133,34 @@ public class PassukDisplay extends JFrame {
         }
     }
 
+    //switches position when perek is edited
+    public void perekCallback() {
+        goToPassuk((int)perekBox.getSelectedItem(), 1);
+    }
+    //switches position when passuk is edited
+    public void passukCallback() {
+        
+        goToPassuk(perek, (int)passukBox.getSelectedItem());
+    }
+
     //goes to a particular perek and passuk in the loaded sefer
     public void goToPassuk(int perek, int passuk) {
+        watch = false;
         //stops previous audio from passuk being left behind
         TextToSpeech.stopAudio();
         //sets the instance variables to reflect new location
+        if (this.perek != perek) {
+            this.perek = perek;
+            passukBox.setModel(new DefaultComboBoxModel<Integer>(IntStream.rangeClosed(1, sefer[perek-1].length).boxed().toArray(Integer[]::new)));
+        }
         this.perek = perek;
         this.passuk = passuk;
         //edits displays of hebrew and english text and possition
         hebrew.setText(sefer[perek-1][passuk-1][0].replaceAll("&nbsp;"," "));
         english.setText(sefer[perek-1][passuk-1][1].replaceAll("&nbsp;", " "));
-        position.setText("" + perek + ":" + passuk);
+        perekBox.setSelectedItem(Integer.valueOf(perek));
+        passukBox.setSelectedItem(Integer.valueOf(passuk));
+        watch = true;
         //reads new passuk
         TextToSpeech.speak(english.getText());
     }
