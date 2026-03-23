@@ -35,4 +35,9 @@ public class Quiz {
     public int getResult() {
         return result;
     }
+
+    public static Quiz makeQuiz(String path) {
+        //Calls the parser to make a quiz object from the json file at the given path, then returns that quiz
+        return Parser.parsePath(path, Quiz.class);
+    }
 }

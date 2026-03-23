@@ -20,6 +20,10 @@ public class TextToSpeech {
        
     }
     public static void stopAudio(){
+        
         voice.getAudioPlayer().cancel();
+        voice.deallocate();
+        
+        
     }
 }

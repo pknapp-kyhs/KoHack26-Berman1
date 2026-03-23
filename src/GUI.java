@@ -37,7 +37,7 @@ public class GUI {
         panel.add(label);
         return label;
     }
-    static JTextArea addTextArea(String text, int size){
+    static JTextArea addTextArea(String text, int size, boolean editable) {
         JTextArea textArea = new JTextArea(10, 30);
         textArea.setText(text);
         textArea.setLineWrap(true); // Enable line wrapping
@@ -47,8 +47,7 @@ public class GUI {
 
         // Set the new font to the component
         textArea.setFont(newFont);
-        textArea.setEditable(false);
-        textArea.setEditable(true);
+        textArea.setEditable(editable);
         // Put the JTextArea inside a JScrollPane for scrolling functionality
         JScrollPane scrollPane = new JScrollPane(textArea);
         // Set scrollbar policies
@@ -91,8 +90,11 @@ public class GUI {
         return dropdown;
     }
     public static void addPanel(int x, int y, String position) {
+        //Set the existing panel object to a new panel
+        //Tht way, the next time you call any of these add functions, it will automatically add it to the new panel rather than the old one
         panel = new JPanel();
         panel.setLayout(new GridLayout(x, y));
+        //Add the new panel to the frame in the specified position
         if(position.equals("North")) {
             frame.add(panel, BorderLayout.NORTH);
         }
@@ -109,6 +111,7 @@ public class GUI {
             frame.add(panel, BorderLayout.CENTER);
         }
         else {
+            //If the position specified is not valid, throw an error
             throw new IllegalArgumentException("Invalid position. Please specify 'North', 'South', 'East', 'West', or 'Center'.");
         }
         

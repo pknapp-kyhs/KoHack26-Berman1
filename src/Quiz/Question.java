@@ -29,6 +29,20 @@ public class Question {
     
     //asks the question
     public boolean ask() {
+
+        //Text To speech
+        //stop any audio that may be playing
+        TextToSpeech.stopAudio();
+
+        //Create a string containing the question and all the answers to be spoken, then speak them
+        String textToSpeak = question;
+        for(int i = 0; i < answers.length; i++) {
+            textToSpeak += " Answer number " + (i + 1) + ": " + answers[i].getText() + ". ";
+        }
+        TextToSpeech.speak(textToSpeak);
+
+
+        //Actual functionality
         //returns whether the chosen answer was correct
         return answers[JOptionPane.showOptionDialog(null,question,"Question",JOptionPane.DEFAULT_OPTION,JOptionPane.QUESTION_MESSAGE,icon,answers,0)].getResult();
     }

@@ -49,6 +49,7 @@ public class Leaderboard {
         return output;
     }
     public static void activate(SortElement playerScore){
+        TextToSpeech.stopAudio();
         GUI.createWindow("Leaderboard");
         SortElement[] arr = new SortElement[6];
         arr[0] = new SortElement("Alice", 90);
