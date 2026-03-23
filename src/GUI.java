@@ -23,10 +23,9 @@ public class GUI {
         frame = new JFrame(windowTitle);
         panel = new JPanel();
         panel.setLayout(new GridLayout(x, y)); 
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(panel, BorderLayout.NORTH); 
-        frame.setVisible(true);
     }
     static JLabel addLabel(String text, int size){
         JLabel label = new JLabel(text);
@@ -61,6 +60,7 @@ public class GUI {
         panel.add(scrollPane, BorderLayout.CENTER);
 
         frame.setVisible(true);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
         return textArea;
         
