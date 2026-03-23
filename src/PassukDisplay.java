@@ -93,8 +93,8 @@ public class PassukDisplay extends JFrame {
     public void goToPassuk(int perek, int passuk) {
         this.perek = perek;
         this.passuk = passuk;
-        hebrew.setText(sefer[perek-1][passuk-1][0]);
-        english.setText(sefer[perek-1][passuk-1][1]);
+        hebrew.setText(sefer[perek-1][passuk-1][0].replaceAll("&nbsp;"," "));
+        english.setText(sefer[perek-1][passuk-1][1].replaceAll("&nbsp;", " "));
         position.setText("" + perek + ":" + passuk);
         TextToSpeech.speak(english.getText());
     }
