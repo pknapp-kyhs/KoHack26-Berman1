@@ -23,7 +23,6 @@ public class LoginPage {
             if(email.substring(email.indexOf("@")).indexOf(".") != -1){
                 System.out.println("Login successful");
                 TextToSpeech.stopAudio();
-                TextToSpeech.speak("Login successful.");
                 HomePage.activate();
                 return;
             }

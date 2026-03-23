@@ -1,6 +1,6 @@
 public class HomePage {
     static void activate(){
-        
+        TextToSpeech.stopAudio();
         //Create a new quiz and run it
         Quiz quiz = Quiz.makeQuiz("resources/quiz.json");
         //dispose the previous page
@@ -10,6 +10,7 @@ public class HomePage {
         GUI.addLabel("Welcome to the Home Page!", 20);
         GUI.addButton("Chumash", () -> replace());
         GUI.addButton("Quiz", () -> quiz.run());
+        GUI.addButton("Voice Settings", () -> TextToSpeech.voiceSettings());
         GUI.addButton("Sign Out", () -> {
             //Upon signing out, take the user back to the login page and stop any audio that might be playing
             TextToSpeech.stopAudio();
@@ -18,7 +19,7 @@ public class HomePage {
         });
 
         //Use text to speech to welcome the user to the home page and explain their options
-        TextToSpeech.speak("Welcome to the home page. Please select an option to continue. Option 1: Chumash. Option 2: Quiz.");
+        TextToSpeech.speak("Welcome to the home page. Please select an option to continue. Option 1: Chumash. Option 2: Quiz. Option 3: Voice Settings. Option 4: Sign Out.");
         
         
     }

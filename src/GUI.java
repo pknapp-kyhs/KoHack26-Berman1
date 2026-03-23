@@ -66,6 +66,12 @@ public class GUI {
         return textArea;
         
     }
+    static void refresh() {
+        frame.setVisible(true);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        panel.revalidate(); // Re-calculate layout
+        panel.repaint();    // Re-draw screen
+    }
     public static void addButton(String text, Runnable action) {
         JButton button = new JButton(text);
         panel.add(button);
