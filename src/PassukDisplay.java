@@ -99,7 +99,6 @@ public class PassukDisplay extends JFrame {
         hebrew.setText(sefer[perek-1][passuk-1][0].replaceAll("&nbsp;"," "));
         english.setText(sefer[perek-1][passuk-1][1].replaceAll("&nbsp;", " "));
         position.setText("" + perek + ":" + passuk);
-        TextToSpeech.stopAudio();
         TextToSpeech.speak(english.getText());
     }
 }
