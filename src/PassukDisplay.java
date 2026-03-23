@@ -24,6 +24,7 @@ public class PassukDisplay extends JFrame {
     public PassukDisplay(int chumashBook, int perek, int passuk) {
         this(Chumash.books[chumashBook],perek,passuk);
     }
+
     public PassukDisplay(String book, int perek, int passuk) {
         this.book = book;
         this.perek = perek;
@@ -95,5 +96,6 @@ public class PassukDisplay extends JFrame {
         hebrew.setText(sefer[perek-1][passuk-1][0]);
         english.setText(sefer[perek-1][passuk-1][1]);
         position.setText("" + perek + ":" + passuk);
+        TextToSpeech.speak(english.getText());
     }
 }
