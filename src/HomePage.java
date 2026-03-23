@@ -25,6 +25,6 @@ public class HomePage {
     public static void replace() {
         //dispose the current page and open the passuk selector page
         GUI.frame.dispose();
-        PasukSelectorTwo.activate();
+        PasukSelector.activate();
     }
 }

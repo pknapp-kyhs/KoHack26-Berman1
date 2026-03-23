@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.io.IOException;
 
-public class PasukSelectorTwo {
+public class PasukSelector {
     static JComboBox<String> sefer = null;
     static JTextArea perek = null;
     static JTextArea pasuk = null;
