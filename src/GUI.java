@@ -62,5 +62,38 @@ public class GUI {
             }
         });
     }
+    public static void addDropdown(String[] options, Runnable action) {
+        JComboBox<String> dropdown = new JComboBox<>(options);
+        panel.add(dropdown);
+        dropdown.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                action.run();
+            }
+        });
+    }
+    public static void addPanel(int x, int y, String position) {
+        panel = new JPanel();
+        panel.setLayout(new GridLayout(x, y));
+        if(position.equals("North")) {
+            frame.add(panel, BorderLayout.NORTH);
+        }
+        else if(position.equals("South")) {
+            frame.add(panel, BorderLayout.SOUTH);
+        }
+        else if(position.equals("East")) {
+            frame.add(panel, BorderLayout.EAST);
+        }
+        else if(position.equals("West")) {
+            frame.add(panel, BorderLayout.WEST);
+        }
+        else if (position.equals("Center")) {
+            frame.add(panel, BorderLayout.CENTER);
+        }
+        else {
+            throw new IllegalArgumentException("Invalid position. Please specify 'North', 'South', 'East', 'West', or 'Center'.");
+        }
+        
+    }
+
 }
 

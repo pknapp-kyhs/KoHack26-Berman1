@@ -61,6 +61,10 @@ public class Leaderboard {
         {
             GUI.addLabel((i+1) + ". " + arr[i].name + ": " + arr[i].score, 20);
         }
+        GUI.addButton("Home", () -> {
+            GUI.frame.dispose();
+            HomePage.activate();
+        });
     }
 }
 
