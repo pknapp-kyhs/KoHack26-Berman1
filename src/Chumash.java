@@ -1,6 +1,4 @@
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.InputMismatchException;
 import Perek.*;
 
 //a class to do useful things specifc to chumash and the sefaria api more generally

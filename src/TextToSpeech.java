@@ -16,14 +16,10 @@ public class TextToSpeech {
             voice.allocate();
             voice.speak(textToSpeak);
             voice.deallocate();
-        });
-       
+        });   
     }
-    public static void stopAudio(){
-        
+    public static void stopAudio(){   
         voice.getAudioPlayer().cancel();
-        voice.deallocate();
-        
-        
+        voice.deallocate();       
     }
 }

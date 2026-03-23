@@ -37,7 +37,5 @@ public class PasukSelectorTwo {
         sefer = GUI.addDropdown(Chumash.books, () -> {});
         perek = GUI.addTextArea("", 20, true);
         pasuk = GUI.addTextArea("", 20, true);
-        
-        
     }
 }

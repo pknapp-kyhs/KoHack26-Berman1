@@ -30,7 +30,6 @@ public class Question {
     //asks the question
     public boolean ask() {
 
-        //Text To speech
         //stop any audio that may be playing
         TextToSpeech.stopAudio();
 
@@ -40,7 +39,6 @@ public class Question {
             textToSpeak += " Answer number " + (i + 1) + ": " + answers[i].getText() + ". ";
         }
         TextToSpeech.speak(textToSpeak);
-
 
         //Actual functionality
         //returns whether the chosen answer was correct
