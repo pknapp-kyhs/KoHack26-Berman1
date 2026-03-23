@@ -19,6 +19,7 @@ public class GUI {
         frame.setVisible(true);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
+    //create a new window on the desktop
     static void createWindow(String windowTitle, int x, int y){
         frame = new JFrame(windowTitle);
         panel = new JPanel();
@@ -27,6 +28,7 @@ public class GUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(panel, BorderLayout.NORTH); 
     }
+    //add a label element to main display
     static JLabel addLabel(String text, int size){
         JLabel label = new JLabel(text);
         // Create a new Font with a specific name, style, and size (e.g., 20)
@@ -37,6 +39,7 @@ public class GUI {
         panel.add(label);
         return label;
     }
+    //add a text area element to main display
     static JTextArea addTextArea(String text, int size, boolean editable) {
         JTextArea textArea = new JTextArea(10, 30);
         textArea.setText(text);
@@ -66,28 +69,34 @@ public class GUI {
         return textArea;
         
     }
+
+    //refresh the window view,
     static void refresh() {
         frame.setVisible(true);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         panel.revalidate(); // Re-calculate layout
         panel.repaint();    // Re-draw screen
     }
+    //add a button to the main display
     public static void addButton(String text, Runnable action) {
         JButton button = new JButton(text);
         panel.add(button);
         panel.revalidate(); // Re-calculate layout
         panel.repaint();    // Re-draw screen
+        //set the action the button does
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 action.run();
             }
         });
     }
+    //add a dropdown box to the main display
     public static JComboBox<String> addDropdown(String[] options, Runnable action) {
         JComboBox<String> dropdown = new JComboBox<>(options);
         panel.add(dropdown);
         panel.revalidate(); // Re-calculate layout
         panel.repaint();    // Re-draw screen
+        //set action for when someone switches their selection
         dropdown.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 action.run();

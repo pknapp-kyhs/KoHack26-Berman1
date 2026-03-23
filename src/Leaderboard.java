@@ -48,9 +48,12 @@ public class Leaderboard {
         }
         return output;
     }
+
+    //a method that switches the GUI to the leaderboard of all players, including the current one
     public static void activate(SortElement playerScore){
         TextToSpeech.stopAudio();
         GUI.createWindow("Leaderboard");
+        //all scores currently hard coded, would be pulled from a file or database
         SortElement[] arr = new SortElement[6];
         arr[0] = new SortElement("Alice", 90);
         arr[1] = new SortElement("Bob", 80);
@@ -59,10 +62,12 @@ public class Leaderboard {
         arr[4] = new SortElement("Eve", 70);
         arr[5] = playerScore;
         arr = sort(arr);
+        //loops through the list of scores in order, adding them to the GUI display
         for (int i = 0; i < arr.length; i++)
         {
             GUI.addLabel((i+1) + ". " + arr[i].name + ": " + arr[i].score, 20);
         }
+        //button to switch back to home page
         GUI.addButton("Home", () -> {
             GUI.frame.dispose();
             HomePage.activate();
