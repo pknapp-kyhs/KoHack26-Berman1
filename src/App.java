@@ -15,7 +15,6 @@ public class App {
         Perek esther = Parser.parse(sefaria,Perek.class);
         System.out.println(esther);
         //QuizMaker.makeQuiz("resources/quiz.json").run();
-        //LoginPage.activate();
-        PasukSelectorTwo.activate();
+        LoginPage.activate();
     }
 }
