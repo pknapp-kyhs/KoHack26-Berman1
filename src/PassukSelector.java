@@ -50,12 +50,13 @@ public class PassukSelector extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    Chumash.getPassuk(sefer.getSelectedIndex(), Integer.parseInt(perek.getText()), Integer.parseInt(passuk.getText()));
-                    full.removeAll();
+                    int seferNum = sefer.getSelectedIndex();
+                    int perekNum = Integer.parseInt(perek.getText());
+                    int passukNum = Integer.parseInt(passuk.getText());
+                    dispose();
+                    new PassukDisplay(seferNum,perekNum,passukNum);
                 } catch (NullPointerException a) {
                     JOptionPane.showMessageDialog(null, "We couldnt find that passuk\nPlease search again");
-                } catch (IOException a) {
-                    System.out.println("ioException");
                 }
             }
         });
