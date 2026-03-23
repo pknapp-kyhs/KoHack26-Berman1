@@ -16,13 +16,17 @@ public class API {
     //make an Http request
     public static HttpResponse<String> makeRequest(String URL, String spot, String[][] params) throws Exception {
         HttpClient client = HttpClient.newHttpClient();
+        //set up the basic url as URL + end of URL
         String URLString = URL + "/" + spot + "?";
+        //loop through the parameters and add them to the request URL
         for (String[] param : params) {
             URLString += param[0] + "=" + param[1] + "&";
         }
+        //set up the HttpRequest
         HttpRequest.Builder builder = HttpRequest.newBuilder().uri(URI.create(URLString));
         HttpRequest request = builder.GET().build();
         HttpResponse<String> response;
+        //make the request, keeping it in UTF_8 (to preserve hebrew letters)
         response = client.send(request, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
         return response;
     }
