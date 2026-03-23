@@ -1,36 +1,155 @@
 {
     "questions" : [
         {
-            "question" : "q1",
+            "question" : "What did Hashem create on the first day?",
             "answers" : [
                 {
-                    "text" : "t",
-                    "answer" : true
-                },
-                {
-                    "text" : "t2",
+                    "text" : "Animals",
                     "answer" : false
                 },
                 {
-                    "text" : "t3",
+                    "text" : "Light",
+                    "answer" : true
+                },
+                {
+                    "text" : "Humans",
                     "answer" : false
                 }
             ]
         },
         {
-            "question" : "q2",
+            "question" : "On which day were humans created?",
             "answers" : [
                 {
-                    "text" : "t",
+                    "text" : "Day 3",
                     "answer" : false
                 },
                 {
-                    "text" : "t2",
+                    "text" : "Day 5",
                     "answer" : false
                 },
                 {
-                    "text" : "t3",
+                    "text" : "Day 6",
                     "answer" : true
+                }
+            ]
+        },
+        {
+            "question" : "What tree were Adam and Chava commanded not to eat from?",
+            "answers" : [
+                {
+                    "text" : "Tree of Life",
+                    "answer" : false
+                },
+                {
+                    "text" : "Tree of Knowledge of Good and Evil",
+                    "answer" : true
+                },
+                {
+                    "text" : "Olive Tree",
+                    "answer" : false
+                }
+            ]
+        },
+        {
+            "question" : "Who convinced Chava to eat from the forbidden tree?",
+            "answers" : [
+                {
+                    "text" : "Adam",
+                    "answer" : false
+                },
+                {
+                    "text" : "The serpent",
+                    "answer" : true
+                },
+                {
+                    "text" : "An angel",
+                    "answer" : false
+                }
+            ]
+        },
+        {
+            "question" : "What punishment did Adam receive after eating from the tree?",
+            "answers" : [
+                {
+                    "text" : "He had to leave Gan Eden",
+                    "answer" : true
+                },
+                {
+                    "text" : "He could no longer speak",
+                    "answer" : false
+                },
+                {
+                    "text" : "He disappeared",
+                    "answer" : false
+                }
+            ]
+        },
+        {
+            "question" : "What were the names of Adam and Chava’s first two sons?",
+            "answers" : [
+                {
+                    "text" : "Yosef and Binyamin",
+                    "answer" : false
+                },
+                {
+                    "text" : "Shem and Yefet",
+                    "answer" : false
+                },
+                {
+                    "text" : "Cain and Hevel",
+                    "answer" : true
+                }
+            ]
+        },
+        {
+            "question" : "What happened between Cain and Hevel?",
+            "answers" : [
+                {
+                    "text" : "Cain killed Hevel",
+                    "answer" : true
+                },
+                {
+                    "text" : "Hevel became king",
+                    "answer" : false
+                },
+                {
+                    "text" : "They both left home",
+                    "answer" : false
+                }
+            ]
+        },
+        {
+            "question" : "What was Cain's punishment for killing Hevel?",
+            "answers" : [
+                {
+                    "text" : "He was put in jail",
+                    "answer" : false
+                },
+                {
+                    "text" : "He was banished and became a wanderer",
+                    "answer" : true
+                },
+                {
+                    "text" : "He was forgiven and lived with Adam and Chava",
+                    "answer" : false
+                }
+            ]
+        },
+        {
+            "question" : "Who was born to Adam and Chava after Hevel died?",
+            "answers" : [
+                {
+                    "text" : "Noach",
+                    "answer" : false
+                },
+                {
+                    "text" : "Shet",
+                    "answer" : true
+                },
+                {
+                    "text" : "Terach",
+                    "answer" : false
                 }
             ]
         }
