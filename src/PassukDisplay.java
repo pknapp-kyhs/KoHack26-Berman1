@@ -1,13 +1,7 @@
 import java.awt.GridLayout;
-import java.awt.event.ActionListener;
 import java.io.IOException;
-
 import javax.swing.*;
-
-import org.w3c.dom.Text;
-
 import java.awt.event.*;
-import java.util.List;
 import java.util.stream.IntStream;
 public class PassukDisplay extends JFrame {
 
@@ -20,8 +14,8 @@ public class PassukDisplay extends JFrame {
     JLabel title;
     JTextArea hebrew;
     JTextArea english;
-    JComboBox perekBox;
-    JComboBox passukBox;
+    JComboBox<Integer> perekBox;
+    JComboBox<Integer> passukBox;
     JButton back;
     JButton forward;
 

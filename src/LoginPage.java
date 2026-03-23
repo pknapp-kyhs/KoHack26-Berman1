@@ -1,13 +1,5 @@
 import javax.swing.*;
 
-import org.w3c.dom.Text;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.GridLayout;
-import java.awt.BorderLayout;
-import java.awt.Font;
-
 public class LoginPage {
     static JTextField textField;
     static public void activate(){

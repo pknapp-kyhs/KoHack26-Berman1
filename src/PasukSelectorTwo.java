@@ -1,11 +1,5 @@
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.text.NumberFormat;
-
 import javax.swing.*;
-import javax.swing.text.NumberFormatter;
+import java.io.IOException;
 
 public class PasukSelectorTwo {
     static JComboBox<String> sefer = null;

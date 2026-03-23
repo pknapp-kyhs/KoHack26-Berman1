@@ -1,5 +1,3 @@
-import javax.swing.JPanel;
-
 public class HomePage {
     static void activate(){
         TextToSpeech.speak("Welcome to the home page. Please select an option to continue.");
