@@ -19,6 +19,15 @@ public class GUI {
         frame.add(panel, BorderLayout.NORTH); 
         frame.setVisible(true);
     }
+    static void createWindow(String windowTitle, int x, int y){
+        frame = new JFrame(windowTitle);
+        panel = new JPanel();
+        panel.setLayout(new GridLayout(x, y)); 
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.add(panel, BorderLayout.NORTH); 
+        frame.setVisible(true);
+    }
     static JLabel addLabel(String text, int size){
         JLabel label = new JLabel(text);
         // Create a new Font with a specific name, style, and size (e.g., 20)
@@ -29,7 +38,7 @@ public class GUI {
         panel.add(label);
         return label;
     }
-    static void addTextArea(String text, int size){
+    static JTextArea addTextArea(String text, int size){
         JTextArea textArea = new JTextArea(10, 30);
         textArea.setText(text);
         textArea.setLineWrap(true); // Enable line wrapping
@@ -40,6 +49,7 @@ public class GUI {
         // Set the new font to the component
         textArea.setFont(newFont);
         textArea.setEditable(false);
+        textArea.setEditable(true);
         // Put the JTextArea inside a JScrollPane for scrolling functionality
         JScrollPane scrollPane = new JScrollPane(textArea);
         // Set scrollbar policies
@@ -48,9 +58,11 @@ public class GUI {
 
 
         // Add the JScrollPane to the center of the frame
-        frame.add(scrollPane, BorderLayout.CENTER);
+        panel.add(scrollPane, BorderLayout.CENTER);
 
         frame.setVisible(true);
+
+        return textArea;
         
     }
     public static void addButton(String text, Runnable action) {
@@ -62,7 +74,7 @@ public class GUI {
             }
         });
     }
-    public static void addDropdown(String[] options, Runnable action) {
+    public static JComboBox<String> addDropdown(String[] options, Runnable action) {
         JComboBox<String> dropdown = new JComboBox<>(options);
         panel.add(dropdown);
         dropdown.addActionListener(new ActionListener() {
@@ -70,6 +82,7 @@ public class GUI {
                 action.run();
             }
         });
+        return dropdown;
     }
     public static void addPanel(int x, int y, String position) {
         panel = new JPanel();
