@@ -14,10 +14,10 @@ public class GUI {
         frame = new JFrame(windowTitle);
         panel = new JPanel();
         panel.setLayout(new GridLayout(0, 1)); 
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(panel, BorderLayout.NORTH); 
         frame.setVisible(true);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
     static void createWindow(String windowTitle, int x, int y){
         frame = new JFrame(windowTitle);
