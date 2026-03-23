@@ -17,3 +17,7 @@ Leaderboard.java: A class to build and display the home page using methods in GU
 LoginPage.java: A class to build, display, and run the home page using methods in GUI.java
 Parser.java: A general class using the Gson library to parse jsons. Used to process API calls and stored quizes.
 PassukDisplay.java: A class to allow any sefer of tanach or other sefaria source to be easily displayed and moved through
+PassukSelector.java: A class allowing users to select any passuk in chumash to open to in a PassukDisplay. uses GUI.java
+PerekAdapter.java: A custom Json Deserializer allowing a string, array of string, or 2d array of strings, to be parsed to a 2d string array in java.
+SortElement.java: an element used to jointly sort names and numbers in the merge sort in Leaderboard.java
+TextToSpeech.java: a class implementing TTS libraries to be easily callable throughout the program.
