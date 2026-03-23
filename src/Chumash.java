@@ -18,24 +18,12 @@ public class Chumash {
 
 
         if (Arrays.asList(books).contains(book)) {
-            /*if (perek > 0) {
-                if (passuk > 0) {
-                    String hebrew = Parser.parse(API.requestBody(URL, spot, hebrewParams),Perek.class).versions[0].text[0][0];
-                    String english = Parser.parse(API.requestBody(URL, spot, englishParams),Perek.class).versions[0].text[0][0];
-                    String[][][] out = {{processPassuk(hebrew, english)}};
-                } else {
-                    String[] hebrew = Parser.parse(API.requestBody(URL, spot, hebrewParams), Perek.class).versions[0].text[0];
-                    String[] english = Parser.parse(API.requestBody(URL, spot, englishParams), Perek.class).versions[0].text[0];
-                    String[][][] out = {processPerek(hebrew, english)};
-                    return out;
-                }
-            } else {*/
-                String[][] hebrew = Parser.parse(API.requestBody(URL, spot, hebrewParams),Perek.class).versions[0].text;
-                String[][] english = Parser.parse(API.requestBody(URL, spot, englishParams),Perek.class).versions[0].text;
-                return processSefer(hebrew, english);
-            //}
+            String[][] hebrew = Parser.parse(API.requestBody(URL, spot, hebrewParams),Perek.class).versions[0].text;
+            String[][] english = Parser.parse(API.requestBody(URL, spot, englishParams),Perek.class).versions[0].text;
+            return processSefer(hebrew, english);
         } else {
             throw new InputMismatchException("Sefer Does Not Exist");
+            throw new 
         }
     }
 

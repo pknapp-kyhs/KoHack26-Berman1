@@ -1,4 +1,5 @@
 package Perek;
+//a data holding class to allow gson to parse data from sefaria
 public class Perek {
     public Version[] versions;
     public String toString() {

@@ -17,6 +17,8 @@ public class Quiz {
             //asks question, then adds its value to the result
             addResult(question.ask());
         }
+
+        //set up the leaderboard after the player finishes
         SortElement playerScore = new SortElement("Player", result);
         GUI.frame.dispose();
         Leaderboard.activate(playerScore);
@@ -29,6 +31,7 @@ public class Quiz {
         }
     }
 
+    //returns player score
     public int getResult() {
         return result;
     }

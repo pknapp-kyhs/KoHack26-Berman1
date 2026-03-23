@@ -8,7 +8,7 @@ public class LoginPage {
         textField = new JTextField(20);
 
         //JButton button = new JButton("submit");
-        JLabel label = GUI.addLabel("Enter email address", 20);
+        GUI.addLabel("Enter email address", 20);
         GUI.panel.add(textField);
         
         GUI.addButton("Submit", () -> checkEmailInput(textField.getText()));
