@@ -11,6 +11,11 @@ public class HomePage {
         GUI.addLabel("Welcome to the Home Page!", 20);
         GUI.addButton("Chumash", () -> replace());
         GUI.addButton("Quiz", () -> quiz.run());
+        GUI.addButton("Sign Out", () -> {
+            TextToSpeech.stopAudio();
+            GUI.frame.dispose();
+            LoginPage.activate();
+        });
     
         
         
