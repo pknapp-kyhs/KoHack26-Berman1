@@ -151,17 +151,18 @@ public class PassukDisplay extends JFrame {
         //stops previous audio from passuk being left behind
         TextToSpeech.stopAudio();
         //sets the instance variables to reflect new location
-        if (this.perek != perek) {
+        //if (this.perek != perek) {
             this.perek = perek;
-            passukBox.setModel(new DefaultComboBoxModel<Integer>(IntStream.rangeClosed(1, sefer[perek-1].length).boxed().toArray(Integer[]::new)));
-        }
+        //}
         this.perek = perek;
         this.passuk = passuk;
         //edits displays of hebrew and english text and possition
         hebrew.setText(sefer[perek-1][passuk-1][0].replaceAll("&nbsp;"," "));
         english.setText(sefer[perek-1][passuk-1][1].replaceAll("&nbsp;", " "));
+        passukBox.setModel(new DefaultComboBoxModel<Integer>(IntStream.rangeClosed(1, sefer[perek-1].length).boxed().toArray(Integer[]::new)));
         perekBox.setSelectedItem(Integer.valueOf(perek));
         passukBox.setSelectedItem(Integer.valueOf(passuk));
+
         watch = true;
         //reads new passuk
         TextToSpeech.speak(english.getText());

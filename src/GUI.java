@@ -113,8 +113,6 @@ public class GUI {
         else {
             //If the position specified is not valid, throw an error
             throw new IllegalArgumentException("Invalid position. Please specify 'North', 'South', 'East', 'West', or 'Center'.");
-        }
-        
+        }   
     }
-
 }
