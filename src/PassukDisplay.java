@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import javax.swing.*;
 
+import org.w3c.dom.Text;
+
 import java.awt.event.*;
 public class PassukDisplay extends JFrame {
 
