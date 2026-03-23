@@ -48,14 +48,15 @@ public class Leaderboard {
         }
         return output;
     }
-    public static void activate(){
+    public static void activate(SortElement playerScore){
         GUI.createWindow("Leaderboard");
-        SortElement[] arr = new SortElement[5];
+        SortElement[] arr = new SortElement[6];
         arr[0] = new SortElement("Alice", 90);
         arr[1] = new SortElement("Bob", 80);
         arr[2] = new SortElement("Charlie", 85);
         arr[3] = new SortElement("David", 95);
         arr[4] = new SortElement("Eve", 70);
+        arr[5] = playerScore;
         arr = sort(arr);
         for (int i = 0; i < arr.length; i++)
         {

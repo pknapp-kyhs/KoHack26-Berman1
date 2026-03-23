@@ -17,12 +17,15 @@ public class Quiz {
             //asks question, then adds its value to the result
             addResult(question.ask());
         }
+        SortElement playerScore = new SortElement("Player", result);
+        GUI.frame.dispose();
+        Leaderboard.activate(playerScore);
     }
 
     //adds the result of a question to the running total
     public void addResult(boolean qResult) {
         if (qResult) {
-            result++;
+            result += 10;
         }
     }
 
