@@ -23,7 +23,6 @@ public class Chumash {
             return processSefer(hebrew, english);
         } else {
             throw new InputMismatchException("Sefer Does Not Exist");
-            throw new 
         }
     }
 
