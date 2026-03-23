@@ -61,6 +61,8 @@ public class GUI {
 
         frame.setVisible(true);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        panel.revalidate(); // Re-calculate layout
+        panel.repaint();    // Re-draw screen
 
         return textArea;
         
@@ -68,6 +70,8 @@ public class GUI {
     public static void addButton(String text, Runnable action) {
         JButton button = new JButton(text);
         panel.add(button);
+        panel.revalidate(); // Re-calculate layout
+        panel.repaint();    // Re-draw screen
         button.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 action.run();
@@ -77,6 +81,8 @@ public class GUI {
     public static JComboBox<String> addDropdown(String[] options, Runnable action) {
         JComboBox<String> dropdown = new JComboBox<>(options);
         panel.add(dropdown);
+        panel.revalidate(); // Re-calculate layout
+        panel.repaint();    // Re-draw screen
         dropdown.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 action.run();
