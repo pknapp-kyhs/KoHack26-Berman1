@@ -16,6 +16,6 @@ public class HomePage {
     }
     public static void replace() {
         GUI.frame.dispose();
-        PassukSelector select = new PassukSelector();
+        PasukSelectorTwo.activate();
     }
 }
